@@ -144,19 +144,16 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* The Mac app on a macOS desktop. Sized in container units so it scales as one picture. */
+/* Mac window. The frame is a size container, so the window chrome scales with it. */
 .showcase { position: relative; z-index: 2; margin-top: clamp(-9rem, -10vw, -4rem); padding: 0 clamp(1rem, 4vw, 3rem); }
+.window-frame { container-type: inline-size; max-width: 1180px; margin: 0 auto; }
+
+/* macOS desktop on the MacBook screen: meadow wallpaper, menu bar and the app window.
+   Sized in units of the screen (.mb-screen is a size container). */
 .desktop {
-    container-type: inline-size;
-    position: relative;
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 5.5cqw 7cqw 7cqw;
-    border-radius: 1.8cqw;
-    overflow: hidden;
-    /* Thin dark display bezel, so the desktop reads as a screen against the hero meadow */
-    border: .7cqw solid #1C1C1E;
-    box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, .15);
+    position: absolute;
+    inset: 0;
+    padding: 7cqw 8cqw 0;
 }
 .desktop-wallpaper, .desktop-wallpaper img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .desktop-wallpaper img { object-fit: cover; object-position: 50% 55%; }
@@ -167,20 +164,20 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 2.5cqw;
-    padding: 0 1.6cqw;
+    height: 3.2cqw;
+    padding: 0 2cqw;
     color: #fff;
-    font-size: 1.1cqw;
+    font-size: 1.45cqw;
     text-shadow: 0 0 .6cqw rgba(20, 50, 110, .45);
     background: linear-gradient(rgba(20, 50, 110, .18), rgba(20, 50, 110, .06));
     backdrop-filter: blur(1.2cqw);
     -webkit-backdrop-filter: blur(1.2cqw);
 }
-.menubar-left, .menubar-right { display: flex; align-items: center; gap: 1.6cqw; white-space: nowrap; }
+.menubar-left, .menubar-right { display: flex; align-items: center; gap: 2cqw; white-space: nowrap; }
 .menubar b { font-weight: 700; }
-.menubar svg { height: 1.25cqw; width: auto; fill: currentColor; filter: drop-shadow(0 0 .4cqw rgba(20, 50, 110, .4)); }
-.menubar-right svg:nth-child(2) { height: 1cqw; }
-.apple-logo { height: 1.35cqw !important; }
+.menubar svg { height: 1.6cqw; width: auto; fill: currentColor; }
+.menubar-right svg:nth-child(2) { height: 1.3cqw; }
+.apple-logo { height: 1.75cqw !important; }
 
 .mac-window {
     position: relative;
@@ -202,7 +199,6 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 [data-app-theme="dark"] .t-dark { display: block !important; }
 [data-app-theme="dark"] .t-light { display: none !important; }
 [data-app-theme="dark"] .mac-window { background: var(--night); }
-[data-app-theme="dark"] .mb-screen { background: var(--night); }
 
 .theme-switch {
     display: flex;
@@ -338,12 +334,13 @@ section { scroll-margin-top: 4rem; }
     z-index: 1;
 }
 .mb-screen {
+    container-type: inline-size;
+    position: relative;
     aspect-ratio: 16 / 10.4;
     overflow: hidden;
     border-radius: .8cqw .8cqw 0 0;
-    background: var(--paper);
+    background: #6FA3D8;
 }
-.mb-screen img { width: 100%; padding-top: 1.4cqw; }
 .mb-base {
     position: relative;
     height: 1.9cqw;
