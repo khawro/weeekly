@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weeekly — your whole week, at a glance</title>
+    <meta name="description" content="Weeekly is a calm weekly planner for Mac, iPad, iPhone and Apple Watch. One price, $29, lifetime access on every device.">
+    <meta property="og:title" content="Weeekly — your whole week, at a glance">
+    <meta property="og:description" content="A calm weekly planner for Mac, iPad, iPhone and Apple Watch. $29 once, yours forever.">
+    <meta property="og:image" content="assets/meadow.jpg">
+    <meta name="theme-color" content="#3D7BFF">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="preload" as="image" href="assets/meadow.webp" type="image/webp">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+    <a class="nav-brand" href="#top" aria-label="Weeekly home">
+        <img src="assets/icon.png" alt="" width="28" height="28">
+        <span>Weeekly</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#devices">Devices</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-small" href="#pricing">Get Weeekly</a>
+</header>
+
+<main id="top">
+
+    <!-- Hero: the meadow illustration with the logo in the sky -->
+    <section class="hero">
+        <picture class="hero-bg">
+            <source srcset="assets/meadow.webp" type="image/webp">
+            <img src="assets/meadow.jpg" alt="" fetchpriority="high">
+        </picture>
+        <div class="hero-content">
+            <p class="hero-platforms">Mac · iPad · iPhone · Apple Watch</p>
+            <h1 class="hero-logo">
+                <picture>
+                    <source srcset="assets/logo.webp" type="image/webp">
+                    <img src="assets/logo.png" alt="Weeekly" width="700" height="233">
+                </picture>
+            </h1>
+            <p class="hero-tagline">Your whole week, at a glance.<br>Then go outside.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#pricing">Get lifetime access — $29</a>
+                <a class="btn btn-glass" href="#features">See how it works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mac window, overlapping the bottom of the hero -->
+    <section class="showcase" aria-label="Weeekly on the Mac">
+        <div class="mac-window reveal" data-theme="dark">
+            <div class="mac-titlebar" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+            <img class="shot shot-dark" src="assets/mac-dark.webp" width="1500" height="760"
+                 alt="Weeekly on the Mac: seven day columns with colorful task pills and emoji stickers, dark theme">
+            <img class="shot shot-light" src="assets/mac-light.webp" width="1500" height="760"
+                 alt="Weeekly on the Mac in the Warm Light theme" loading="lazy">
+        </div>
+        <div class="theme-switch reveal" role="group" aria-label="Theme">
+            <button type="button" class="is-active" data-set-theme="dark">Dark</button>
+            <button type="button" data-set-theme="light">Warm Light</button>
+        </div>
+    </section>
+
+    <!-- Intro statement -->
+    <section class="statement">
+        <p class="eyebrow reveal">A planner, not a project manager</p>
+        <h2 class="reveal">Seven days. One page.<br><span class="muted">No inbox, no backlog, no guilt.</span></h2>
+        <p class="lead reveal">Weeekly gives you a paper-like week where every task lives on a day. Write it down, color it in,
+            tick it off. That's the whole idea — and it turns out to be all you need.</p>
+    </section>
+
+    <!-- Feature bento -->
+    <section class="features" id="features">
+        <div class="bento">
+            <article class="card card-wide reveal">
+                <div class="card-text">
+                    <h3>Color your week</h3>
+                    <p>Eleven hand-picked colors turn tasks into pills, so work, family and fun are easy to tell apart at a glance.</p>
+                </div>
+                <div class="pills" aria-hidden="true">
+                    <span class="pill" style="--c:#FF5F57">Ship v1.2</span>
+                    <span class="pill" style="--c:#F7894F">Team lunch</span>
+                    <span class="pill" style="--c:#F3B111">Design review</span>
+                    <span class="pill" style="--c:#5FAE6E">Groceries</span>
+                    <span class="pill" style="--c:#8DC9A6">Hike with friends</span>
+                    <span class="pill" style="--c:#8CC3EA">Rest</span>
+                    <span class="pill" style="--c:#7F93EE">Plan the week</span>
+                    <span class="pill" style="--c:#9A84DA">Movie night</span>
+                    <span class="pill" style="--c:#B9A7E8">Yoga</span>
+                    <span class="pill" style="--c:#F394B6">Pay rent</span>
+                </div>
+            </article>
+
+            <article class="card card-stickers reveal">
+                <div class="stickers" aria-hidden="true">
+                    <span style="--r:-12deg">🔥</span>
+                    <span style="--r:8deg">🚀</span>
+                    <span style="--r:-6deg">🍕</span>
+                    <span style="--r:14deg">🥑</span>
+                </div>
+                <h3>Stickers, stuck on tasks</h3>
+                <p>Slap an emoji sticker on anything that deserves a little celebration.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg>
+                </div>
+                <h3>Repeating tasks</h3>
+                <p>Gym every Monday, rent on the first. Set it once and it shows up on its own.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                </div>
+                <h3>Gentle reminders</h3>
+                <p>A nudge at the right time, on whichever device is closest to you.</p>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M17.5 19H7a5 5 0 1 1 1.1-9.9A6 6 0 0 1 19.6 11a4 4 0 0 1-2.1 8z"/></svg>
+                </div>
+                <h3>Synced with iCloud</h3>
+                <p>Your week follows you everywhere, privately, through your own iCloud account.</p>
+            </article>
+
+            <article class="card card-wide card-themes reveal">
+                <div class="card-text">
+                    <h3>Dark, or warm like paper</h3>
+                    <p>A calm, neutral dark theme and a warm, paper-like light theme with one bold blue accent. Or let your system decide.</p>
+                </div>
+                <div class="swatches" aria-hidden="true">
+                    <div class="swatch swatch-dark"><span>Aa</span></div>
+                    <div class="swatch swatch-light"><span>Aa</span></div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Devices -->
+    <section class="devices" id="devices">
+        <div class="section-head">
+            <p class="eyebrow reveal">Everywhere you are</p>
+            <h2 class="reveal">One week. Four screens.</h2>
+            <p class="lead reveal">Plan on the big screen, check things off on the go, glance at today on your wrist.</p>
+        </div>
+
+        <div class="device-stage">
+            <figure class="device device-ipad reveal">
+                <img src="assets/ipad.webp" width="1500" height="1125" loading="lazy"
+                     alt="Weeekly on iPad: the full week in landscape">
+                <figcaption>iPad</figcaption>
+            </figure>
+            <figure class="device device-iphone reveal">
+                <img src="assets/iphone.webp" width="689" height="1500" loading="lazy"
+                     alt="Weeekly on iPhone: today and the next days in a scrolling list">
+                <figcaption>iPhone</figcaption>
+            </figure>
+            <figure class="device device-watch reveal">
+                <!-- Watch face drawn in HTML, styled like the Watch app -->
+                <div class="watch" aria-label="Weeekly on Apple Watch: today's tasks" role="img">
+                    <div class="watch-screen">
+                        <div class="watch-head"><span class="watch-day">Today</span><span class="watch-time">9:41</span></div>
+                        <div class="watch-task"><span class="pill" style="--c:#F3B111">Design review</span><i>🔥</i></div>
+                        <div class="watch-task">Groceries</div>
+                        <div class="watch-task is-done">Call mom <i>📞</i></div>
+                    </div>
+                </div>
+                <figcaption>Apple Watch</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <picture class="pricing-bg" aria-hidden="true">
+            <source srcset="assets/meadow.webp" type="image/webp">
+            <img src="assets/meadow.jpg" alt="" loading="lazy">
+        </picture>
+        <div class="price-card reveal">
+            <img class="price-icon" src="assets/icon.png" alt="" width="72" height="72" loading="lazy">
+            <p class="eyebrow">Lifetime access</p>
+            <p class="price"><span class="currency">$</span>29</p>
+            <p class="price-note">Pay once. Yours forever. No subscription.</p>
+            <ul class="price-list">
+                <li>Mac, iPad, iPhone and Apple Watch</li>
+                <li>iCloud sync across all your devices</li>
+                <li>Repeating tasks, reminders and stickers</li>
+                <li>Every future update included</li>
+            </ul>
+            <button type="button" class="btn btn-primary btn-block" data-buy>Get Weeekly for $29</button>
+            <p class="price-fine">One purchase unlocks every app on your Apple Account.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <h2 class="reveal">Questions</h2>
+        <div class="faq-list">
+            <details class="reveal">
+                <summary>Is it really a one-time payment?</summary>
+                <p>Yes. $29 once gets you Weeekly on Mac, iPad, iPhone and Apple Watch, including future updates. No subscription, ever.</p>
+            </details>
+            <details class="reveal">
+                <summary>Where is my data stored?</summary>
+                <p>On your devices and in your own private iCloud account. We don't run servers and we can't see your tasks.</p>
+            </details>
+            <details class="reveal">
+                <summary>Do I need all four devices?</summary>
+                <p>No. Weeekly works great on a single device. Every extra device you add simply stays in sync.</p>
+            </details>
+            <details class="reveal">
+                <summary>What happens to unfinished tasks?</summary>
+                <p>They stay where you put them, and you can move any task to another day in a couple of taps — or drag it on the Mac and iPad.</p>
+            </details>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <img src="assets/icon.png" alt="" width="32" height="32" loading="lazy">
+    <p>Weeekly — a calm weekly planner.</p>
+    <p class="footer-links">
+        <a href="mailto:khawro@gmail.com?subject=Weeekly">Contact</a>
+    </p>
+    <p class="footer-fine">© 2026 Weeekly. Apple, Mac, iPad, iPhone and Apple Watch are trademarks of Apple Inc.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
