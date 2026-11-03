@@ -17,12 +17,17 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-// Dark / Warm Light switch for the Mac screenshot.
-const macWindow = document.querySelector(".mac-window");
-document.querySelectorAll("[data-set-theme]").forEach((button) => {
+// Warm Light / Dark switch: changes the app theme in every screenshot on the page.
+const themeButtons = document.querySelectorAll("[data-set-theme]");
+themeButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        macWindow.dataset.theme = button.dataset.setTheme;
-        document.querySelectorAll("[data-set-theme]").forEach((b) => b.classList.toggle("is-active", b === button));
+        const theme = button.dataset.setTheme;
+        document.documentElement.dataset.appTheme = theme;
+        themeButtons.forEach((b) => {
+            const isActive = b.dataset.setTheme === theme;
+            b.classList.toggle("is-active", isActive);
+            b.setAttribute("aria-pressed", String(isActive));
+        });
     });
 });
 

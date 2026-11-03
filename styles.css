@@ -144,32 +144,73 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* Mac window */
+/* The Mac app on a macOS desktop. Sized in container units so it scales as one picture. */
 .showcase { position: relative; z-index: 2; margin-top: clamp(-9rem, -10vw, -4rem); padding: 0 clamp(1rem, 4vw, 3rem); }
-.mac-window {
+.desktop {
+    container-type: inline-size;
     position: relative;
     max-width: 1180px;
     margin: 0 auto;
-    border-radius: 16px;
+    padding: 5.5cqw 7cqw 7cqw;
+    border-radius: 1.8cqw;
     overflow: hidden;
-    background: var(--night);
-    box-shadow: var(--shadow), 0 0 0 1px rgba(0, 0, 0, .25);
-    transition: background-color .5s ease;
+    /* Thin dark display bezel, so the desktop reads as a screen against the hero meadow */
+    border: .7cqw solid #1C1C1E;
+    box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, .15);
 }
-.mac-window[data-theme="light"] { background: var(--paper); box-shadow: var(--shadow), 0 0 0 1px rgba(74, 59, 40, .15); }
-.mac-titlebar { display: flex; gap: 8px; padding: 14px 16px 6px; }
-.mac-titlebar span { width: 12px; height: 12px; border-radius: 50%; background: #FF5F57; }
+.desktop-wallpaper, .desktop-wallpaper img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.desktop-wallpaper img { object-fit: cover; object-position: 50% 55%; }
+.menubar {
+    position: absolute;
+    inset: 0 0 auto;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2.5cqw;
+    padding: 0 1.6cqw;
+    color: #fff;
+    font-size: 1.1cqw;
+    text-shadow: 0 0 .6cqw rgba(20, 50, 110, .45);
+    background: linear-gradient(rgba(20, 50, 110, .18), rgba(20, 50, 110, .06));
+    backdrop-filter: blur(1.2cqw);
+    -webkit-backdrop-filter: blur(1.2cqw);
+}
+.menubar-left, .menubar-right { display: flex; align-items: center; gap: 1.6cqw; white-space: nowrap; }
+.menubar b { font-weight: 700; }
+.menubar svg { height: 1.25cqw; width: auto; fill: currentColor; filter: drop-shadow(0 0 .4cqw rgba(20, 50, 110, .4)); }
+.menubar-right svg:nth-child(2) { height: 1cqw; }
+.apple-logo { height: 1.35cqw !important; }
+
+.mac-window {
+    position: relative;
+    z-index: 1;
+    border-radius: 1.4cqw;
+    overflow: hidden;
+    background: var(--paper);
+    box-shadow: 0 3cqw 6cqw -1.5cqw rgba(10, 20, 50, .55), 0 0 0 1px rgba(0, 0, 0, .18);
+    transition: background-color .4s ease;
+}
+.mac-titlebar { display: flex; gap: .7cqw; padding: 1.2cqw 1.4cqw .4cqw; }
+.mac-titlebar span { width: 1.05cqw; height: 1.05cqw; border-radius: 50%; background: #FF5F57; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
 .mac-titlebar span:nth-child(2) { background: #FEBC2E; }
 .mac-titlebar span:nth-child(3) { background: #28C840; }
-.shot { width: 100%; transition: opacity .5s ease; }
-.shot-light { position: absolute; left: 0; bottom: 0; opacity: 0; }
-.mac-window[data-theme="light"] .shot-light { opacity: 1; }
+.shot { width: 100%; }
+
+/* App theme shown in every screenshot: Warm Light by default, Dark when switched */
+.t-dark { display: none !important; }
+[data-app-theme="dark"] .t-dark { display: block !important; }
+[data-app-theme="dark"] .t-light { display: none !important; }
+[data-app-theme="dark"] .mac-window { background: var(--night); }
+[data-app-theme="dark"] .mb-screen { background: var(--night); }
 
 .theme-switch {
     display: flex;
     width: max-content;
     margin: 1.75rem auto 0;
     padding: 4px;
+    position: relative;
+    z-index: 1;
     border-radius: 999px;
     background: var(--paper-2);
 }
@@ -186,6 +227,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 
 /* Sections */
 section { scroll-margin-top: 4rem; }
+.devices .theme-switch { margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
 .statement, .section-head { text-align: center; padding: clamp(5rem, 12vw, 9rem) 1.5rem clamp(3rem, 6vw, 4.5rem); max-width: 62rem; margin: 0 auto; }
 
 /* Bento cards */
@@ -299,7 +341,7 @@ section { scroll-margin-top: 4rem; }
     aspect-ratio: 16 / 10.4;
     overflow: hidden;
     border-radius: .8cqw .8cqw 0 0;
-    background: var(--night);
+    background: var(--paper);
 }
 .mb-screen img { width: 100%; padding-top: 1.4cqw; }
 .mb-base {
@@ -338,7 +380,7 @@ section { scroll-margin-top: 4rem; }
     background: linear-gradient(135deg, #5B5D63, #2A2B2F 40%, #47494E);
     box-shadow: inset 0 0 0 .12cqw rgba(255, 255, 255, .25), 0 3cqw 4cqw -1.5cqw rgba(20, 30, 60, .55);
 }
-.iphone-body img { width: 100%; border-radius: 2.1cqw; background: #000; }
+.iphone-body img { width: 100%; border-radius: 2.1cqw; }
 
 /* Apple Watch */
 .lu-watch { right: 0; bottom: 3.5cqw; width: 11cqw; z-index: 3; }
