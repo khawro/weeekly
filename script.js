@@ -6,6 +6,23 @@ const updateNav = () => nav.classList.toggle("is-scrolled", window.scrollY > 40)
 updateNav();
 window.addEventListener("scroll", updateNav, { passive: true });
 
+// Hero window: straightens up from a tilt as the page scrolls (see .window-frame in styles.css).
+const windowFrame = document.querySelector(".window-frame");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let frameRequested = false;
+const updateWindow = () => {
+    frameRequested = false;
+    const progress = Math.min(1, Math.max(0, window.scrollY / (window.innerHeight * 0.55)));
+    windowFrame.style.setProperty("--p", reduceMotion.matches ? 1 : progress.toFixed(3));
+};
+updateWindow();
+window.addEventListener("scroll", () => {
+    if (!frameRequested) {
+        frameRequested = true;
+        requestAnimationFrame(updateWindow);
+    }
+}, { passive: true });
+
 // Fade elements in as they scroll into view.
 const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
