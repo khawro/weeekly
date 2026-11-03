@@ -596,6 +596,30 @@ section { scroll-margin-top: 4rem; }
     stroke-linejoin: round;
 }
 .device-card p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+.device-card { display: flex; flex-direction: column; align-items: center; }
+
+/* Store buttons, styled after Apple's black "Download on the App Store" badges */
+.store-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: auto;
+    padding: .45rem .95rem .45rem .8rem;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.05;
+    text-align: left;
+    transition: transform .2s ease, background-color .2s ease;
+}
+.device-card p + .store-badge { margin-top: 1.4rem; }
+.device-card p { flex: 1; }
+.store-badge:hover { background: #222; }
+.store-badge:active { transform: scale(.97); }
+.store-badge svg { width: 1.25rem; height: 1.5rem; fill: currentColor; flex: 0 0 auto; }
+.store-badge span { display: flex; flex-direction: column; font-size: 1.02rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
+.store-badge small { font-size: .66rem; font-weight: 500; letter-spacing: .01em; }
 
 .sync-note {
     display: flex;

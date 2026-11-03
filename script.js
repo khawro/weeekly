@@ -52,7 +52,8 @@ themeButtons.forEach((button) => {
 const toast = document.getElementById("toast");
 let toastTimer;
 document.querySelectorAll("[data-buy]").forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
         toast.textContent = "Coming soon to the App Store ✨";
         toast.classList.add("is-visible");
         clearTimeout(toastTimer);
