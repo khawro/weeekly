@@ -271,11 +271,37 @@ section { scroll-margin-top: 4rem; }
     align-items: center;
     justify-content: center;
     gap: 1.75rem;
-    min-height: 380px;
+    position: relative;
+    min-height: 420px;
     padding: 2.5rem;
     border-radius: 32px;
-    background: var(--card);
+    overflow: hidden;
     text-align: left;
+    /* A crop of the hero illustration; script.js nudges it (and the contents) with the pointer */
+    background: #8DB8E0 url("assets/meadow.webp") no-repeat;
+    background-size: var(--bg-size, 240%) auto;
+    background-position: calc(var(--bg-x, 50%) + var(--mx, 0) * -12px) calc(var(--bg-y, 50%) + var(--my, 0) * -12px);
+    transition: background-position .6s cubic-bezier(.2, .8, .2, 1);
+}
+.feature-visual > * {
+    position: relative;
+    translate: calc(var(--mx, 0) * 10px) calc(var(--my, 0) * 10px);
+    transition: translate .6s cubic-bezier(.2, .8, .2, 1);
+}
+.feature-visual > .badge { translate: calc(var(--mx, 0) * 18px) calc(var(--my, 0) * 18px); }
+/* Which part of the illustration each panel shows */
+.v-colors { --bg-size: 250%; --bg-x: 4%; --bg-y: 8%; }
+.v-stickers { --bg-size: 300%; --bg-x: 6%; --bg-y: 100%; }
+.v-repeat { --bg-size: 260%; --bg-x: 96%; --bg-y: 6%; }
+.v-remind { --bg-size: 280%; --bg-x: 100%; --bg-y: 60%; }
+.v-cloud { --bg-size: 260%; --bg-x: 80%; --bg-y: 2%; }
+
+/* Frosted glass for everything that sits on the illustration */
+.glass {
+    background: rgba(255, 255, 255, .72);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 20px 40px -18px rgba(20, 40, 90, .45), inset 0 0 0 1px rgba(255, 255, 255, .6);
 }
 
 /* Feature icons in colored circles */
@@ -286,6 +312,7 @@ section { scroll-margin-top: 4rem; }
     height: 64px;
     border-radius: 50%;
     color: #fff;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, .55);
 }
 .badge svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 .badge-repeat { background: #4CAF64; }
@@ -342,7 +369,7 @@ section { scroll-margin-top: 4rem; }
 }
 
 /* One day, drawn like a day column in the app */
-.day-mock { width: min(100%, 360px); font-size: 1.05rem; font-weight: 500; }
+.day-mock { width: min(100%, 380px); padding: 1.25rem 1.5rem .5rem; border-radius: 22px; font-size: 1.05rem; font-weight: 500; }
 .day-mock-head {
     display: flex;
     justify-content: space-between;
@@ -370,8 +397,7 @@ section { scroll-margin-top: 4rem; }
     margin: 0;
     padding: .4rem;
     list-style: none;
-    border-radius: 16px;
-    background: var(--paper);
+    border-radius: 18px;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -389,7 +415,6 @@ section { scroll-margin-top: 4rem; }
     width: 100%;
     padding: .9rem 1.05rem;
     border-radius: 22px;
-    background: var(--paper);
     text-align: left;
 }
 .notification img { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 22.4%; }
@@ -399,7 +424,7 @@ section { scroll-margin-top: 4rem; }
 .notification-top b { color: var(--ink); font-weight: 600; }
 .notification-title { font-weight: 650; }
 .notification-body { font-size: .92rem; color: var(--ink-2); }
-.notification-back { width: 88%; height: 12px; border-radius: 0 0 16px 16px; background: var(--paper-2); }
+.notification-back { width: 88%; height: 12px; border-radius: 0 0 16px 16px; background: rgba(255, 255, 255, .45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
 /* Stickers: emoji drawn like die-cut stickers (white outline + soft shadow) */
 .stickers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
@@ -416,11 +441,11 @@ section { scroll-margin-top: 4rem; }
 .feature-visual:hover .stickers span { transform: rotate(0) scale(1.1); }
 
 /* iCloud: the cloud above the four devices it keeps in sync */
-.visual-cloud { background: linear-gradient(170deg, #EAF2FF, #FFFFFF 75%); }
 .cloud-sync { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
-.cloud-glyph { width: min(100%, 190px); height: auto; }
+.cloud-glyph { width: min(100%, 200px); height: auto; filter: drop-shadow(0 16px 24px rgba(20, 50, 110, .35)); }
 .cloud-devices { display: flex; gap: 1.6rem; }
-.cloud-devices svg { width: 40px; height: 40px; fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cloud-devices { padding: .8rem 1.3rem; border-radius: 999px; }
+.cloud-devices svg { width: 36px; height: 36px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Devices: a lineup sized in container units, so it scales as one picture */
 .devices { padding-bottom: clamp(5rem, 10vw, 8rem); overflow: hidden; }

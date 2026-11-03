@@ -68,3 +68,18 @@ document.querySelectorAll(".device-card").forEach((card) => {
     card.addEventListener("mouseenter", () => device.classList.add("is-focused"));
     card.addEventListener("mouseleave", () => device.classList.remove("is-focused"));
 });
+
+// Feature panels: the illustration and the glass on top drift with the pointer (parallax).
+if (!reduceMotion.matches) {
+    document.querySelectorAll(".feature-visual").forEach((panel) => {
+        panel.addEventListener("pointermove", (event) => {
+            const box = panel.getBoundingClientRect();
+            panel.style.setProperty("--mx", ((event.clientX - box.left) / box.width - 0.5).toFixed(3));
+            panel.style.setProperty("--my", ((event.clientY - box.top) / box.height - 0.5).toFixed(3));
+        });
+        panel.addEventListener("pointerleave", () => {
+            panel.style.setProperty("--mx", 0);
+            panel.style.setProperty("--my", 0);
+        });
+    });
+}
