@@ -327,13 +327,46 @@
 
 </main>
 
+<!-- Footer: sky from the hero illustration, a last call to action and the logo, oversized -->
 <footer class="footer">
-    <img src="assets/icon.png" alt="" width="32" height="32" loading="lazy">
-    <p>Weeekly, a calm weekly planner.</p>
-    <p class="footer-links">
-        <a href="mailto:khawro@gmail.com?subject=Weeekly">Contact</a>
-    </p>
-    <p class="footer-fine">© 2026 Weeekly. Apple, Mac, iPad, iPhone and Apple Watch are trademarks of Apple Inc.</p>
+    <picture class="footer-sky" aria-hidden="true">
+        <source srcset="assets/meadow.webp" type="image/webp">
+        <img src="assets/meadow.jpg" alt="" loading="lazy">
+    </picture>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-cta">
+                <p class="footer-tagline">Plan the week.<br>Then go outside.</p>
+                <button type="button" class="btn btn-light" data-buy>Get Weeekly for $29</button>
+            </div>
+            <nav class="footer-cols" aria-label="Footer">
+                <div>
+                    <p class="footer-head">Weeekly</p>
+                    <a href="#features">Features</a>
+                    <a href="#devices">Devices</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div>
+                    <p class="footer-head">Works on</p>
+                    <span>Mac</span>
+                    <span>iPad</span>
+                    <span>iPhone</span>
+                    <span>Apple Watch</span>
+                </div>
+                <div>
+                    <p class="footer-head">Say hi</p>
+                    <a href="mailto:khawro@gmail.com?subject=Weeekly">Email</a>
+                    <a href="mailto:khawro@gmail.com?subject=Weeekly%20Feedback">Feedback</a>
+                </div>
+            </nav>
+        </div>
+        <p class="footer-fine">© 2026 Weeekly. Apple, Mac, iPad, iPhone and Apple Watch are trademarks of Apple Inc.</p>
+    </div>
+    <picture class="footer-logo">
+        <source srcset="assets/logo.webp" type="image/webp">
+        <img src="assets/logo.png" alt="Weeekly" width="700" height="199" loading="lazy">
+    </picture>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
