@@ -349,9 +349,6 @@ section { scroll-margin-top: 4rem; }
 .reveal-feature .cloud-glyph { opacity: 0; transform: translateY(20px); transition: opacity .6s ease .4s, transform .9s cubic-bezier(.2, .8, .2, 1) .4s; }
 .reveal-feature.is-visible .cloud-glyph { opacity: 1; transform: none; animation: cloud-float 5s ease-in-out 1.4s infinite; }
 @keyframes cloud-float { 50% { transform: translateY(-6px); } }
-/* Sync arrows in the cloud: a turn every few seconds */
-.sync-arrows { transform-box: fill-box; transform-origin: center; animation: sync-spin 3.5s cubic-bezier(.6, 0, .3, 1) infinite; }
-@keyframes sync-spin { 0%, 55% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
 
 /* Task pills, like TaskLabel in the app */
 .pill {
