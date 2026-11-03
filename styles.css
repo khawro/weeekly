@@ -287,8 +287,8 @@ section { scroll-margin-top: 4rem; }
     color: #fff;
 }
 .badge svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.badge-repeat { background: linear-gradient(145deg, #7ED68A, #3FA75A); }
-.badge-bell { background: linear-gradient(145deg, #FFB067, #FF6B4A); }
+.badge-repeat { background: #4CAF64; }
+.badge-bell { background: #FF7A4D; }
 
 /* Feature entrances: text slides in from its side, the visual rises and settles,
    then the visual's own parts arrive one after another. Triggered by .is-visible. */
