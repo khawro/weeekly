@@ -302,7 +302,7 @@ section { scroll-margin-top: 4rem; }
     width: min(1100px, 100% - 2rem);
     margin: 0 auto;
 }
-.lineup::before { content: ""; display: block; padding-top: 43%; }
+.lineup::before { content: ""; display: block; padding-top: 45%; }
 .lu {
     position: absolute;
     margin: 0;
@@ -312,7 +312,7 @@ section { scroll-margin-top: 4rem; }
 .lineup.has-focus .lu.is-focused { opacity: 1; filter: none; transform: translateY(-1.2cqw); }
 
 /* MacBook */
-.lu-mac { left: 19cqw; bottom: 3cqw; width: 62cqw; z-index: 1; }
+.lu-mac { left: 20cqw; bottom: 3cqw; width: 62cqw; z-index: 1; }
 .mb-lid {
     width: 56cqw;
     margin: 0 auto;
@@ -360,7 +360,7 @@ section { scroll-margin-top: 4rem; }
 }
 
 /* iPad Pro */
-.lu-ipad { left: 0; bottom: 0; width: 34cqw; z-index: 2; }
+.lu-ipad { left: 2cqw; bottom: 0; width: 27cqw; z-index: 2; }
 .ipad-body {
     padding: 1cqw;
     border-radius: 2.4cqw;
