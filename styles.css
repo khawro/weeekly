@@ -337,11 +337,10 @@ section { scroll-margin-top: 4rem; }
 .reveal-feature .repeat-menu li:nth-child(6) { transition-delay: .85s; }
 
 .reveal-feature .stickers span { opacity: 0; }
-.reveal-feature.is-visible .stickers span { animation: slap .55s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: var(--d); }
+.reveal-feature.is-visible .stickers span { animation: slap .7s cubic-bezier(.25, .8, .3, 1) both; animation-delay: var(--d); }
 @keyframes slap {
-    0% { opacity: 0; transform: translate(-50%, -50%) rotate(calc(var(--r) - 25deg)) scale(1.9); }
-    60% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--r)) scale(.92); }
-    100% { opacity: 1; transform: translate(-50%, -50%) rotate(var(--r)) scale(1); }
+    from { opacity: 0; transform: translate(-50%, -50%) rotate(calc(var(--r) - 6deg)) scale(1.12); }
+    to { opacity: 1; transform: translate(-50%, -50%) rotate(var(--r)) scale(1); }
 }
 
 .reveal-feature .notification { opacity: 0; transform: translateY(-24px); transition: opacity .5s ease .55s, transform .7s cubic-bezier(.2, 1.3, .4, 1) .55s; }
@@ -431,10 +430,8 @@ section { scroll-margin-top: 4rem; }
     font-size: var(--s);
     line-height: 1;
     transform: translate(-50%, -50%) rotate(var(--r));
-    filter:
-        drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff)
-        drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff)
-        drop-shadow(0 10px 10px rgba(0, 0, 0, .2));
+    /* Smooth white outline from the SVG filter in index.html, then a soft shadow */
+    filter: url(#sticker-outline) drop-shadow(0 8px 10px rgba(20, 40, 90, .22));
 }
 
 /* iCloud: the cloud above the four devices it keeps in sync */

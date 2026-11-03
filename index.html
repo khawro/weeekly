@@ -16,6 +16,18 @@
 </head>
 <body>
 
+<!-- Die-cut sticker outline: grows the emoji's shape evenly, smooths the edge, fills it white -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="sticker-outline" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="5" result="grown"/>
+        <feGaussianBlur in="grown" stdDeviation="1.6" result="soft"/>
+        <feComponentTransfer in="soft" result="edge"><feFuncA type="linear" slope="6" intercept="-2"/></feComponentTransfer>
+        <feFlood flood-color="#fff"/>
+        <feComposite in2="edge" operator="in" result="outline"/>
+        <feMerge><feMergeNode in="outline"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+</svg>
+
 <header class="nav" id="nav">
     <a class="nav-brand" href="#top" aria-label="Weeekly home">
         <img src="assets/icon.png" alt="" width="28" height="28">
