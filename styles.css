@@ -218,7 +218,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     position: relative;
     z-index: 1;
     border-radius: 999px;
-    background: var(--paper-2);
+    background: #DDD5C7;
 }
 .theme-switch button {
     display: grid;
@@ -230,12 +230,14 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     border-radius: 999px;
     background: transparent;
     font: 600 .9rem var(--font);
-    color: var(--ink-2);
+    color: #5E574D;
     cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
 }
-.theme-switch svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-switch button:not(.is-active):hover { color: var(--ink); }
+.theme-switch svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .theme-switch button[data-set-theme="dark"] svg { fill: currentColor; stroke: none; }
-.theme-switch button.is-active { background: var(--card); color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, .1); }
+.theme-switch button.is-active { background: var(--ink); color: #fff; }
 
 /* Sections */
 section { scroll-margin-top: 4rem; }
