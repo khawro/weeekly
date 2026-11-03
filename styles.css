@@ -201,6 +201,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 .mac-titlebar span:nth-child(2) { background: #FEBC2E; }
 .mac-titlebar span:nth-child(3) { background: #28C840; }
 .shot { width: 100%; }
+.window-frame .mac-window { box-shadow: 0 1.4cqw 3.5cqw -1.2cqw rgba(10, 20, 50, .28), 0 0 0 1px rgba(0, 0, 0, .1); }
 
 /* App theme shown in every screenshot: Warm Light by default, Dark when switched */
 .t-dark { display: none !important; }
@@ -250,7 +251,7 @@ section { scroll-margin-top: 4rem; }
     grid-template-columns: 5fr 6fr;
     align-items: center;
     gap: clamp(2rem, 6vw, 6rem);
-    padding: clamp(3.5rem, 8vw, 7rem) 0;
+    padding: clamp(2rem, 4.5vw, 3.75rem) 0;
 }
 .feature-flip { grid-template-columns: 6fr 5fr; }
 .feature-flip .feature-text { order: 2; }
@@ -264,14 +265,68 @@ section { scroll-margin-top: 4rem; }
 }
 .feature-text p { margin: 0; max-width: 26rem; font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-2); }
 .feature-visual {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
     min-height: 380px;
     padding: 2.5rem;
     border-radius: 32px;
     background: var(--card);
     text-align: left;
 }
+
+/* Feature icons in colored circles */
+.badge {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: #fff;
+}
+.badge svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.badge-repeat { background: linear-gradient(145deg, #7ED68A, #3FA75A); }
+.badge-bell { background: linear-gradient(145deg, #FFB067, #FF6B4A); }
+
+/* Feature entrances: text slides in from its side, the visual rises and settles,
+   then the visual's own parts arrive one after another. Triggered by .is-visible. */
+.reveal-feature .feature-text,
+.reveal-feature .feature-visual { opacity: 0; transition: opacity .8s ease, transform .9s cubic-bezier(.2, .8, .2, 1); }
+.reveal-feature .feature-text { transform: translateX(-40px); }
+.reveal-feature.feature-flip .feature-text { transform: translateX(40px); }
+.reveal-feature .feature-visual { transform: translateY(40px) scale(.95); transition-delay: .12s; }
+.reveal-feature.is-visible .feature-text,
+.reveal-feature.is-visible .feature-visual { opacity: 1; transform: none; }
+
+.reveal-feature .badge { transform: scale(0); transition: transform .6s cubic-bezier(.3, 1.6, .5, 1) .45s; }
+.reveal-feature.is-visible .badge { transform: none; }
+
+.reveal-feature .day-mock-row,
+.reveal-feature .repeat-menu li { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
+.reveal-feature.is-visible .day-mock-row,
+.reveal-feature.is-visible .repeat-menu li { opacity: 1; transform: none; }
+.reveal-feature .day-mock-row:nth-child(2), .reveal-feature .repeat-menu li:nth-child(1) { transition-delay: .45s; }
+.reveal-feature .day-mock-row:nth-child(3), .reveal-feature .repeat-menu li:nth-child(2) { transition-delay: .53s; }
+.reveal-feature .day-mock-row:nth-child(4), .reveal-feature .repeat-menu li:nth-child(3) { transition-delay: .61s; }
+.reveal-feature .day-mock-row:nth-child(5), .reveal-feature .repeat-menu li:nth-child(4) { transition-delay: .69s; }
+.reveal-feature .day-mock-row:nth-child(6), .reveal-feature .repeat-menu li:nth-child(5) { transition-delay: .77s; }
+.reveal-feature .repeat-menu li:nth-child(6) { transition-delay: .85s; }
+
+.reveal-feature .stickers span { opacity: 0; scale: .3; transition: opacity .3s ease, scale .6s cubic-bezier(.3, 1.6, .5, 1), transform .4s cubic-bezier(.3, 1.6, .5, 1); }
+.reveal-feature.is-visible .stickers span { opacity: 1; scale: 1; }
+.reveal-feature .stickers span:nth-child(1) { transition-delay: .4s, .4s, 0s; }
+.reveal-feature .stickers span:nth-child(2) { transition-delay: .52s, .52s, 0s; }
+.reveal-feature .stickers span:nth-child(3) { transition-delay: .64s, .64s, 0s; }
+.reveal-feature .stickers span:nth-child(4) { transition-delay: .76s, .76s, 0s; }
+
+.reveal-feature .notification { opacity: 0; transform: translateY(-24px); transition: opacity .5s ease .55s, transform .7s cubic-bezier(.2, 1.3, .4, 1) .55s; }
+.reveal-feature.is-visible .notification { opacity: 1; transform: none; }
+
+.reveal-feature .cloud-glyph { opacity: 0; transform: translateY(20px); transition: opacity .6s ease .4s, transform .9s cubic-bezier(.2, .8, .2, 1) .4s; }
+.reveal-feature.is-visible .cloud-glyph { opacity: 1; transform: none; animation: cloud-float 5s ease-in-out 1.4s infinite; }
+@keyframes cloud-float { 50% { transform: translateY(-6px); } }
 
 /* Task pills, like TaskLabel in the app */
 .pill {
@@ -346,7 +401,6 @@ section { scroll-margin-top: 4rem; }
 .notification-back { width: 88%; height: 12px; border-radius: 0 0 16px 16px; background: var(--paper-2); }
 
 /* Stickers: emoji drawn like die-cut stickers (white outline + soft shadow) */
-.visual-stickers { background: linear-gradient(165deg, #FFF6E6, #FFE3CF); }
 .stickers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
 .stickers span {
     font-size: clamp(3.5rem, 6vw, 5rem);
@@ -358,7 +412,7 @@ section { scroll-margin-top: 4rem; }
         drop-shadow(0 8px 8px rgba(0, 0, 0, .15));
     transition: transform .4s cubic-bezier(.3, 1.6, .5, 1);
 }
-.visual-stickers:hover .stickers span { transform: rotate(0) scale(1.1); }
+.feature-visual:hover .stickers span { transform: rotate(0) scale(1.1); }
 
 /* iCloud: the cloud above the four devices it keeps in sync */
 .visual-cloud { background: linear-gradient(170deg, #EAF2FF, #FFFFFF 75%); }
@@ -641,7 +695,10 @@ section { scroll-margin-top: 4rem; }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(var(--paper), rgba(247, 243, 236, 0) 14%), linear-gradient(rgba(25, 60, 130, 0) 75%, rgba(20, 45, 25, .45)), linear-gradient(rgba(25, 60, 130, .15), rgba(25, 60, 130, .05));
+    background:
+        linear-gradient(var(--paper), rgba(247, 243, 236, .93) 3%, rgba(247, 243, 236, .76) 7%, rgba(247, 243, 236, .53) 11%,
+            rgba(247, 243, 236, .3) 15%, rgba(247, 243, 236, .13) 19%, rgba(247, 243, 236, .04) 23%, rgba(247, 243, 236, 0) 27%),
+        linear-gradient(rgba(25, 60, 130, 0) 75%, rgba(20, 45, 25, .45)), linear-gradient(rgba(25, 60, 130, .15), rgba(25, 60, 130, .05));
 }
 .footer-inner {
     position: relative;
@@ -691,6 +748,7 @@ section { scroll-margin-top: 4rem; }
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
 .reveal.is-visible { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
+.no-js .reveal-feature *, .no-js .reveal-feature .stickers span { opacity: 1 !important; transform: none !important; scale: 1 !important; }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -712,4 +770,5 @@ section { scroll-margin-top: 4rem; }
     .window-frame { transform: none; }
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; }
+    .reveal-feature * { opacity: 1 !important; transform: none !important; scale: 1 !important; }
 }
