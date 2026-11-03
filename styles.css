@@ -218,7 +218,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     position: relative;
     z-index: 1;
     border-radius: 999px;
-    background: #DDD5C7;
+    background: var(--paper-2);
 }
 .theme-switch button {
     display: grid;
