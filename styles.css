@@ -66,6 +66,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 .btn-glass:hover { background: rgba(20, 50, 110, .32); }
 .btn-small { padding: .55rem 1rem; font-size: .9rem; background: var(--ink); color: #fff; }
 .btn-block { width: 100%; }
+.btn-apple { width: 1em; height: 1.18em; margin-top: -.18em; fill: currentColor; flex: 0 0 auto; }
 
 /* Navigation: transparent over the sky, frosted once scrolled */
 .nav {
