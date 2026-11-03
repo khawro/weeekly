@@ -236,35 +236,46 @@ section { scroll-margin-top: 4rem; }
 .devices .theme-switch { margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
 .statement, .section-head { text-align: center; padding: clamp(5rem, 12vw, 9rem) 1.5rem clamp(3rem, 6vw, 4.5rem); max-width: 62rem; margin: 0 auto; }
 
-/* Bento cards */
+/* Feature tiles: flat (no shadows), large radius, Apple-style type */
+.gradient-text {
+    background: linear-gradient(90deg, #3D7BFF, #9A84DA 45%, #F394B6 75%, #F7894F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 .features { padding: 0 clamp(1rem, 4vw, 3rem) clamp(4rem, 8vw, 7rem); }
 .bento {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
     max-width: 1180px;
     margin: 0 auto;
 }
-.card {
-    padding: 2rem;
-    border-radius: var(--radius);
+.tile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 420px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    border-radius: 32px;
     background: var(--card);
-    box-shadow: 0 1px 2px rgba(74, 59, 40, .06), 0 12px 40px -20px rgba(74, 59, 40, .25);
+    overflow: hidden;
 }
-.card p { margin: 0; color: var(--ink-2); }
-.card-wide { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
-.card-text { max-width: 30rem; }
-.card-icon {
-    width: 52px; height: 52px;
-    display: grid; place-items: center;
-    margin-bottom: 1.4rem;
-    border-radius: 16px;
-    background: rgba(61, 123, 255, .1);
+.tile h3 {
+    max-width: 28rem;
+    margin: 0;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
-.card-icon svg { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tile h3 span { color: var(--ink-2); font-weight: 600; }
+.tile-visual { flex: 1; display: flex; align-items: center; justify-content: center; }
+.tile-wide { grid-column: span 2; }
+.tile-full { grid-column: 1 / -1; }
 
 /* Task pills, like TaskLabel in the app */
-.pills { display: flex; flex-wrap: wrap; gap: .6rem; }
+.pills { flex-wrap: wrap; align-content: center; gap: .75rem; }
 .pill {
     display: inline-block;
     padding: .3rem .8rem;
@@ -275,34 +286,70 @@ section { scroll-margin-top: 4rem; }
     font-size: .98rem;
     white-space: nowrap;
 }
+.tile-colors .pill { font-size: clamp(1rem, 1.6vw, 1.3rem); padding: .45rem 1.05rem; }
 
 /* Stickers: emoji drawn like die-cut stickers (white outline + soft shadow) */
-.card-stickers { background: linear-gradient(160deg, #FFF8EC, #FFE9D6); }
-.stickers { display: flex; gap: .4rem; margin-bottom: 1.4rem; }
+.tile-stickers { background: linear-gradient(165deg, #FFF6E6, #FFE3CF); }
+.stickers { flex-wrap: wrap; gap: .25rem; }
 .stickers span {
-    font-size: 2.6rem;
+    font-size: clamp(3.2rem, 5vw, 4.4rem);
     line-height: 1;
     transform: rotate(var(--r));
     filter:
-        drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
-        drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
-        drop-shadow(0 6px 6px rgba(0, 0, 0, .18));
-    transition: transform .3s cubic-bezier(.3, 1.6, .5, 1);
+        drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
+        drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+        drop-shadow(0 8px 8px rgba(0, 0, 0, .15));
+    transition: transform .4s cubic-bezier(.3, 1.6, .5, 1);
 }
-.card-stickers:hover .stickers span { transform: rotate(0) scale(1.12); }
+.tile-stickers:hover .stickers span { transform: rotate(0) scale(1.1); }
 
-/* Theme swatches */
-.card-themes { grid-column: 1 / -1; flex-direction: row; align-items: center; }
-.swatches { display: flex; gap: 1rem; flex-shrink: 0; }
-.swatch {
-    width: 120px; height: 120px;
-    display: grid; place-items: center;
-    border-radius: 24px;
-    font: 700 2.2rem var(--font-round);
+/* Repeat menu, like the task menu in the app */
+.repeat-menu {
+    width: min(100%, 230px);
+    margin: 0;
+    padding: .4rem;
+    list-style: none;
+    border-radius: 16px;
+    background: var(--paper);
+    font-size: .95rem;
+    font-weight: 500;
 }
-.swatch-dark { background: var(--night); color: #EDEDED; }
-.swatch-light { background: var(--paper); color: #2B2520; box-shadow: inset 0 0 0 1px rgba(74, 59, 40, .12); }
-.swatch span { border-bottom: 3px solid var(--accent); line-height: 1.2; }
+.repeat-menu li { position: relative; padding: .5rem .75rem .5rem 2rem; border-radius: 10px; color: var(--ink); }
+.repeat-menu li.is-checked { background: var(--accent); color: #fff; }
+.repeat-menu li.is-checked::before { content: "✓"; position: absolute; left: .75rem; font-weight: 700; }
+
+/* Reminder notification banner */
+.tile-visual:has(.notification) { position: relative; flex-direction: column; }
+.notification {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: .75rem;
+    width: min(100%, 300px);
+    padding: .85rem 1rem;
+    border-radius: 22px;
+    background: var(--paper);
+    text-align: left;
+}
+.notification img { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 9px; }
+.notification > div { flex: 1; }
+.notification p { margin: 0; }
+.notification-top { display: flex; justify-content: space-between; font-size: .8rem; color: var(--ink-2); }
+.notification-top b { color: var(--ink); font-weight: 600; }
+.notification-title { font-weight: 650; }
+.notification-body { font-size: .9rem; color: var(--ink-2); }
+.notification-back { z-index: 0; width: min(88%, 264px); height: 14px; margin-top: -6px; padding: 0; border-radius: 0 0 18px 18px; background: var(--paper-2); }
+
+/* iCloud */
+.tile-cloud { background: linear-gradient(170deg, #EAF2FF, #FFFFFF 70%); }
+.cloud-glyph { width: min(60%, 170px); height: auto; }
+
+/* Themes: the same week in Warm Light and Dark, side by side */
+.tile-themes { min-height: 0; }
+.tile-themes h3 { max-width: 44rem; }
+.theme-compare { gap: 1rem; align-items: stretch; }
+.theme-compare img { width: 50%; min-width: 0; border-radius: 16px; }
+.theme-compare img:first-child { box-shadow: inset 0 0 0 1px rgba(74, 59, 40, .12); outline: 1px solid rgba(74, 59, 40, .1); }
 
 /* Devices: a lineup sized in container units, so it scales as one picture */
 .devices { padding-bottom: clamp(5rem, 10vw, 8rem); overflow: hidden; }
@@ -463,13 +510,12 @@ section { scroll-margin-top: 4rem; }
 }
 .device-card {
     padding: 1.75rem 1.5rem;
-    border-radius: var(--radius);
+    border-radius: 32px;
     background: var(--card);
     text-align: center;
-    box-shadow: 0 1px 2px rgba(74, 59, 40, .06), 0 12px 40px -20px rgba(74, 59, 40, .25);
-    transition: box-shadow .3s ease, transform .3s ease;
+    transition: transform .3s ease;
 }
-.device-card:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(74, 59, 40, .06), 0 20px 50px -20px rgba(61, 123, 255, .45); }
+.device-card:hover { transform: translateY(-4px); }
 .device-icon {
     width: 56px; height: 56px;
     margin: 0 auto 1rem;
@@ -595,15 +641,16 @@ section { scroll-margin-top: 4rem; }
 /* Responsive */
 @media (max-width: 900px) {
     .bento { grid-template-columns: 1fr 1fr; }
-    .card-wide { grid-column: span 2; }
+    .tile-wide { grid-column: span 2; }
     .device-cards { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
     .nav-links { display: none; }
     .bento { grid-template-columns: 1fr; }
-    .card-wide { grid-column: auto; }
-    .card-themes { flex-direction: column; align-items: flex-start; }
-    .swatch { width: 96px; height: 96px; }
+    .tile-wide { grid-column: auto; }
+    .tile { min-height: 340px; }
+    .theme-compare { flex-direction: column; }
+    .theme-compare img { width: 100%; }
     .device-card { padding: 1.4rem 1rem; }
     .device-icon { width: 44px; height: 44px; }
     .hero-bg img { object-position: 45% 80%; }
