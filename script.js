@@ -37,3 +37,17 @@ document.querySelectorAll("[data-buy]").forEach((button) => {
         toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2800);
     });
 });
+
+// Hovering a device card highlights that device in the lineup.
+const lineup = document.getElementById("lineup");
+document.querySelectorAll(".device-card").forEach((card) => {
+    const device = lineup.querySelector(`.lu[data-device="${card.dataset.device}"]`);
+    card.addEventListener("mouseenter", () => {
+        lineup.classList.add("has-focus");
+        device.classList.add("is-focused");
+    });
+    card.addEventListener("mouseleave", () => {
+        lineup.classList.remove("has-focus");
+        device.classList.remove("is-focused");
+    });
+});

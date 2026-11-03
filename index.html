@@ -149,38 +149,90 @@
         </div>
     </section>
 
-    <!-- Devices -->
+    <!-- Devices: all four in one lineup, then one card per device -->
     <section class="devices" id="devices">
         <div class="section-head">
             <p class="eyebrow reveal">Everywhere you are</p>
-            <h2 class="reveal">One week. Four screens.</h2>
-            <p class="lead reveal">Plan on the big screen, check things off on the go, glance at today on your wrist.</p>
+            <h2 class="reveal">One week.<br>Four devices.</h2>
+            <p class="lead reveal">Plan on the big screen, check things off on the go, glance at today on your wrist.
+                Every change shows up everywhere, in seconds.</p>
         </div>
 
-        <div class="device-stage">
-            <figure class="device device-ipad reveal">
-                <img src="assets/ipad.webp" width="1500" height="1125" loading="lazy"
-                     alt="Weeekly on iPad: the full week in landscape">
-                <figcaption>iPad</figcaption>
-            </figure>
-            <figure class="device device-iphone reveal">
-                <img src="assets/iphone.webp" width="689" height="1500" loading="lazy"
-                     alt="Weeekly on iPhone: today and the next days in a scrolling list">
-                <figcaption>iPhone</figcaption>
-            </figure>
-            <figure class="device device-watch reveal">
-                <!-- Watch face drawn in HTML, styled like the Watch app -->
-                <div class="watch" aria-label="Weeekly on Apple Watch: today's tasks" role="img">
-                    <div class="watch-screen">
-                        <div class="watch-head"><span class="watch-day">Today</span><span class="watch-time">9:41</span></div>
-                        <div class="watch-task"><span class="pill" style="--c:#F3B111">Design review</span><i>🔥</i></div>
-                        <div class="watch-task">Groceries</div>
-                        <div class="watch-task is-done">Call mom <i>📞</i></div>
+        <div class="lineup reveal" id="lineup">
+            <!-- MacBook: lid with notch, aluminum base -->
+            <figure class="lu lu-mac" data-device="mac">
+                <div class="mb-lid">
+                    <div class="mb-screen">
+                        <img src="assets/mac-dark.webp" width="1500" height="760" loading="lazy"
+                             alt="Weeekly on a MacBook: the whole week in seven columns">
                     </div>
                 </div>
-                <figcaption>Apple Watch</figcaption>
+                <div class="mb-base"></div>
+            </figure>
+
+            <!-- iPad Pro, landscape -->
+            <figure class="lu lu-ipad" data-device="ipad">
+                <div class="ipad-body">
+                    <img src="assets/ipad.webp" width="1500" height="1125" loading="lazy"
+                         alt="Weeekly on iPad: the full week in landscape">
+                </div>
+            </figure>
+
+            <!-- iPhone: the screenshot already includes the Dynamic Island -->
+            <figure class="lu lu-iphone" data-device="iphone">
+                <div class="iphone-body">
+                    <img src="assets/iphone.webp" width="689" height="1500" loading="lazy"
+                         alt="Weeekly on iPhone: today and the next days in a scrolling list">
+                </div>
+            </figure>
+
+            <!-- Apple Watch, drawn in HTML and styled like the Watch app -->
+            <figure class="lu lu-watch" data-device="watch">
+                <div class="watch" role="img" aria-label="Weeekly on Apple Watch: today's tasks with check circles">
+                    <div class="watch-band watch-band-top"></div>
+                    <div class="watch-band watch-band-bottom"></div>
+                    <div class="watch-crown"></div>
+                    <div class="watch-button"></div>
+                    <div class="watch-case">
+                        <div class="watch-screen">
+                            <div class="watch-head"><span class="watch-day">Tue 3</span><span class="watch-time">9:41</span></div>
+                            <div class="watch-task"><span class="watch-check"></span><span class="pill" style="--c:#F3B111">Design review</span></div>
+                            <div class="watch-task"><span class="watch-check"></span>Call the dentist</div>
+                            <div class="watch-task"><span class="watch-check"></span><span class="pill" style="--c:#5FAE6E">Groceries</span></div>
+                            <div class="watch-task is-done"><span class="watch-check"></span>Plan the week</div>
+                        </div>
+                    </div>
+                </div>
             </figure>
         </div>
+
+        <ul class="device-cards">
+            <li class="device-card reveal" data-device="mac">
+                <svg class="device-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="9" width="32" height="22" rx="2.5"/><path d="M3 35.5h42l-1.6 2.6a2 2 0 0 1-1.7.9H6.3a2 2 0 0 1-1.7-.9z"/><path d="M21 35.5h6"/></svg>
+                <h3>Mac</h3>
+                <p>The whole week side by side. Type a task, hit Return, done.</p>
+            </li>
+            <li class="device-card reveal" data-device="ipad">
+                <svg class="device-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="9" width="40" height="30" rx="4"/><rect x="8" y="13" width="32" height="22" rx="1"/></svg>
+                <h3>iPad</h3>
+                <p>Your week in landscape. Drag a task to another day with your finger.</p>
+            </li>
+            <li class="device-card reveal" data-device="iphone">
+                <svg class="device-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="3" width="20" height="42" rx="5"/><path d="M21.5 7.5h5"/></svg>
+                <h3>iPhone</h3>
+                <p>Today first, the rest of the week below. Swipe to the next week.</p>
+            </li>
+            <li class="device-card reveal" data-device="watch">
+                <svg class="device-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 13.5 18.6 5h10.8l1.6 8.5M17 34.5l1.6 8.5h10.8l1.6-8.5"/><rect x="12" y="13" width="23" height="22" rx="6.5"/><path d="M35 20.5v4"/></svg>
+                <h3>Apple Watch</h3>
+                <p>Today's tasks on your wrist. Tap to tick one off, swipe for tomorrow.</p>
+            </li>
+        </ul>
+
+        <p class="sync-note reveal">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19H7a5 5 0 1 1 1.1-9.9A6 6 0 0 1 19.6 11a4 4 0 0 1-2.1 8z"/></svg>
+            One purchase, all four apps — kept in sync with iCloud.
+        </p>
     </section>
 
     <!-- Pricing -->
