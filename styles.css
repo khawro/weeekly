@@ -623,7 +623,7 @@ section { scroll-margin-top: 4rem; }
 .faq details p { margin: 0 0 1.4rem; color: var(--ink-2); }
 
 /* Footer */
-/* Footer: the hero sky, a last call to action, and the logo running off the bottom edge */
+/* Footer: the hero sky, a last call to action, and the logo at content width */
 .footer {
     position: relative;
     overflow: hidden;
@@ -637,7 +637,7 @@ section { scroll-margin-top: 4rem; }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(var(--paper), rgba(247, 243, 236, 0) 14%), linear-gradient(rgba(25, 60, 130, .15), rgba(25, 60, 130, .05));
+    background: linear-gradient(var(--paper), rgba(247, 243, 236, 0) 14%), linear-gradient(rgba(25, 60, 130, 0) 75%, rgba(20, 45, 25, .45)), linear-gradient(rgba(25, 60, 130, .15), rgba(25, 60, 130, .05));
 }
 .footer-inner {
     position: relative;
@@ -659,14 +659,9 @@ section { scroll-margin-top: 4rem; }
 .footer-cols a, .footer-cols span { font-size: 1rem; font-weight: 500; text-decoration: none; opacity: .92; }
 .footer-cols a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 .footer-head { margin: 0 0 .4rem; font-size: .9rem; font-weight: 700; opacity: .75; }
-.footer-fine { margin: clamp(3rem, 6vw, 5rem) 0 0; font-size: .8rem; opacity: .85; }
-.footer-logo { position: relative; z-index: 1; display: block; margin-top: 1rem; }
-.footer-logo img {
-    width: 96vw;
-    max-width: none;
-    margin: 0 auto -6vw;
-    filter: drop-shadow(0 2vw 3vw rgba(40, 70, 140, .35));
-}
+.footer-logo { display: block; margin-top: clamp(3.5rem, 7vw, 6rem); }
+.footer-logo img { width: 100%; filter: drop-shadow(0 1.2rem 2rem rgba(40, 70, 140, .35)); }
+.footer-fine { margin: 2rem 0 0; padding-bottom: 2.5rem; font-size: .8rem; opacity: .85; }
 
 /* "Coming soon" toast for the buy button */
 .toast {
