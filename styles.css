@@ -623,7 +623,7 @@ section { scroll-margin-top: 4rem; }
 .faq details p { margin: 0 0 1.4rem; color: var(--ink-2); }
 
 /* Footer */
-/* Footer: the hero sky, a last call to action, and the logo at content width */
+/* Footer: the hero illustration again, a last call to action and links */
 .footer {
     position: relative;
     overflow: hidden;
@@ -659,9 +659,7 @@ section { scroll-margin-top: 4rem; }
 .footer-cols a, .footer-cols span { font-size: 1rem; font-weight: 500; text-decoration: none; opacity: .92; }
 .footer-cols a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 .footer-head { margin: 0 0 .4rem; font-size: .9rem; font-weight: 700; opacity: .75; }
-.footer-logo { display: block; margin-top: clamp(3.5rem, 7vw, 6rem); }
-.footer-logo img { width: 100%; filter: drop-shadow(0 1.2rem 2rem rgba(40, 70, 140, .35)); }
-.footer-fine { margin: 2rem 0 0; padding-bottom: 2.5rem; font-size: .8rem; opacity: .85; }
+.footer-fine { margin: clamp(16rem, 30vw, 26rem) 0 0; padding-bottom: 2.5rem; font-size: .8rem; opacity: .85; }
 
 /* "Coming soon" toast for the buy button */
 .toast {
