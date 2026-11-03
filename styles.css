@@ -221,7 +221,11 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     background: var(--paper-2);
 }
 .theme-switch button {
-    padding: .55rem 1.1rem;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 32px;
+    padding: 0;
     border: 0;
     border-radius: 999px;
     background: transparent;
@@ -229,11 +233,14 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     color: var(--ink-2);
     cursor: pointer;
 }
+.theme-switch svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-switch button[data-set-theme="dark"] svg { fill: currentColor; stroke: none; }
 .theme-switch button.is-active { background: var(--card); color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, .1); }
 
 /* Sections */
 section { scroll-margin-top: 4rem; }
-.devices .theme-switch { margin: 0 auto clamp(2.5rem, 5vw, 4rem); }
+.devices .section-head { padding-bottom: 1.25rem; }
+.devices .theme-switch { margin: 0 auto 1rem; }
 .statement, .section-head { text-align: center; padding: clamp(5rem, 12vw, 9rem) 1.5rem clamp(3rem, 6vw, 4.5rem); max-width: 62rem; margin: 0 auto; }
 
 /* Feature tiles: flat (no shadows), large radius, Apple-style type */
@@ -359,14 +366,13 @@ section { scroll-margin-top: 4rem; }
     width: min(1100px, 100% - 2rem);
     margin: 0 auto;
 }
-.lineup::before { content: ""; display: block; padding-top: 45%; }
+.lineup::before { content: ""; display: block; padding-top: 43%; }
 .lu {
     position: absolute;
     margin: 0;
-    transition: opacity .35s ease, transform .5s cubic-bezier(.2, .8, .2, 1), filter .35s ease;
+    transition: transform .5s cubic-bezier(.2, .8, .2, 1);
 }
-.lineup.has-focus .lu { opacity: .35; filter: saturate(.5); }
-.lineup.has-focus .lu.is-focused { opacity: 1; filter: none; transform: translateY(-1.2cqw); }
+.lu.is-focused { transform: translateY(-1.8cqw); }
 
 /* MacBook */
 .lu-mac { left: 20cqw; bottom: 3cqw; width: 62cqw; z-index: 1; }
@@ -524,9 +530,7 @@ section { scroll-margin-top: 4rem; }
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke .3s ease;
 }
-.device-card:hover .device-icon { stroke: var(--accent); }
 .device-card p { margin: 0; color: var(--ink-2); font-size: .95rem; }
 
 .sync-note {
