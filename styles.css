@@ -272,8 +272,6 @@ section { scroll-margin-top: 4rem; }
     background: var(--card);
     text-align: left;
 }
-.feature-wide { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
-.feature-wide .feature-text p { margin: 0 auto; }
 
 /* Task pills, like TaskLabel in the app */
 .pill {
@@ -309,18 +307,6 @@ section { scroll-margin-top: 4rem; }
 }
 .day-mock-row .check { margin-left: auto; }
 .check { flex: 0 0 auto; width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 1.5px solid var(--ink); }
-.sticker {
-    margin-left: auto;
-    font-size: 1.9rem;
-    font-style: normal;
-    line-height: 1;
-    transform: rotate(var(--r));
-    filter:
-        drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff)
-        drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
-        drop-shadow(0 4px 4px rgba(0, 0, 0, .15));
-}
-.sticker + .check { margin-left: 0; }
 
 /* Repeat menu, like the task menu in the app */
 .repeat-menu {
@@ -359,10 +345,27 @@ section { scroll-margin-top: 4rem; }
 .notification-body { font-size: .92rem; color: var(--ink-2); }
 .notification-back { width: 88%; height: 12px; border-radius: 0 0 16px 16px; background: var(--paper-2); }
 
-/* Themes: the same week in Warm Light and Dark, side by side */
-.theme-compare { display: flex; gap: 1rem; }
-.theme-compare img { width: 50%; min-width: 0; border-radius: 16px; }
-.theme-compare img:first-child { outline: 1px solid rgba(74, 59, 40, .12); outline-offset: -1px; }
+/* Stickers: emoji drawn like die-cut stickers (white outline + soft shadow) */
+.visual-stickers { background: linear-gradient(165deg, #FFF6E6, #FFE3CF); }
+.stickers { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.stickers span {
+    font-size: clamp(3.5rem, 6vw, 5rem);
+    line-height: 1;
+    transform: rotate(var(--r));
+    filter:
+        drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
+        drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+        drop-shadow(0 8px 8px rgba(0, 0, 0, .15));
+    transition: transform .4s cubic-bezier(.3, 1.6, .5, 1);
+}
+.visual-stickers:hover .stickers span { transform: rotate(0) scale(1.1); }
+
+/* iCloud: the cloud above the four devices it keeps in sync */
+.visual-cloud { background: linear-gradient(170deg, #EAF2FF, #FFFFFF 75%); }
+.cloud-sync { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.cloud-glyph { width: min(100%, 190px); height: auto; }
+.cloud-devices { display: flex; gap: 1.6rem; }
+.cloud-devices svg { width: 40px; height: 40px; fill: none; stroke: var(--ink-2); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* Devices: a lineup sized in container units, so it scales as one picture */
 .devices { padding-bottom: clamp(5rem, 10vw, 8rem); overflow: hidden; }
@@ -657,9 +660,7 @@ section { scroll-margin-top: 4rem; }
 }
 @media (max-width: 640px) {
     .nav-links { display: none; }
-    .feature-visual { min-height: 0; padding: 2rem 1.25rem; }
-    .theme-compare { flex-direction: column; }
-    .theme-compare img { width: 100%; }
+    .feature-visual { min-height: 0; padding: 2.5rem 1.25rem; }
     .device-card { padding: 1.4rem 1rem; }
     .device-icon { width: 44px; height: 44px; }
     .hero-bg img { object-position: 45% 80%; }
