@@ -75,84 +75,77 @@
 
     <!-- Intro statement -->
     <section class="statement">
-        <h2 class="reveal">Seven days. One page.<br><span class="gradient-text">No inbox, no backlog, no guilt.</span></h2>
+        <h2 class="reveal">Seven days. One page.<br><span class="muted">No inbox, no backlog, no guilt.</span></h2>
         <p class="lead reveal">Weeekly gives you a paper-like week where every task lives on a day. Write it down, color it in,
             tick it off. That's the whole idea, and it turns out to be all you need.</p>
     </section>
 
-    <!-- Feature tiles: flat, Apple-style. Headline and muted copy run together in one sentence. -->
+    <!-- Features: one calm row per feature, text beside a single visual -->
     <section class="features" id="features">
-        <div class="bento">
-            <article class="tile tile-wide tile-colors reveal">
-                <h3>Color your week. <span>Eleven hand-picked colors turn tasks into pills, so work, family and fun are easy to tell apart.</span></h3>
-                <div class="tile-visual pills" aria-hidden="true">
-                    <span class="pill" style="--c:#FF5F57">Ship v1.2</span>
-                    <span class="pill" style="--c:#F7894F">Team lunch</span>
-                    <span class="pill" style="--c:#F3B111">Design review</span>
-                    <span class="pill" style="--c:#5FAE6E">Groceries</span>
-                    <span class="pill" style="--c:#8DC9A6">Hike with friends</span>
-                    <span class="pill" style="--c:#8CC3EA">Rest</span>
-                    <span class="pill" style="--c:#7F93EE">Plan the week</span>
-                    <span class="pill" style="--c:#9A84DA">Movie night</span>
-                    <span class="pill" style="--c:#B9A7E8">Yoga</span>
-                    <span class="pill" style="--c:#F394B6">Pay rent</span>
-                    <span class="pill" style="--c:#D1CFB8">Laundry</span>
+        <article class="feature reveal">
+            <div class="feature-text">
+                <h3>Color it in.<br>Stick a sticker on it.</h3>
+                <p>Give a task a color to tell work, family and fun apart. Add an emoji sticker when it deserves a little celebration.</p>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+                <div class="day-mock">
+                    <div class="day-mock-head"><span>3 Nov</span><span>Tue</span></div>
+                    <div class="day-mock-row"><span class="pill" style="--c:#F3B111">Design review</span><i class="sticker" style="--r:-10deg">🔥</i><b class="check"></b></div>
+                    <div class="day-mock-row">Call the dentist<b class="check"></b></div>
+                    <div class="day-mock-row"><span class="pill" style="--c:#5FAE6E">Groceries</span><i class="sticker" style="--r:12deg">🥑</i><b class="check"></b></div>
+                    <div class="day-mock-row">Read 30 pages<b class="check"></b></div>
+                    <div class="day-mock-row"></div>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <article class="tile tile-stickers reveal">
-                <h3>Stickers. <span>Stick an emoji on anything that deserves a little celebration.</span></h3>
-                <div class="tile-visual stickers" aria-hidden="true">
-                    <span style="--r:-12deg">🔥</span>
-                    <span style="--r:9deg">🚀</span>
-                    <span style="--r:-5deg">🍕</span>
-                    <span style="--r:13deg">🥑</span>
-                </div>
-            </article>
+        <article class="feature feature-flip reveal">
+            <div class="feature-text">
+                <h3>Set it once.</h3>
+                <p>Gym every Monday, rent every month. Repeating tasks show up on their own, week after week.</p>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+                <ul class="repeat-menu">
+                    <li>Every Day</li>
+                    <li>Every Weekday</li>
+                    <li class="is-checked">Every Week</li>
+                    <li>Every 2 Weeks</li>
+                    <li>Every Month</li>
+                    <li>Every Year</li>
+                </ul>
+            </div>
+        </article>
 
-            <article class="tile reveal">
-                <h3>Repeats. <span>Gym every Monday, rent every month. Set it once.</span></h3>
-                <div class="tile-visual" aria-hidden="true">
-                    <ul class="repeat-menu">
-                        <li>Every Day</li>
-                        <li>Every Weekday</li>
-                        <li class="is-checked">Every Week</li>
-                        <li>Every 2 Weeks</li>
-                        <li>Every Month</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="tile reveal">
-                <h3>Reminders. <span>A gentle nudge on whichever device is closest.</span></h3>
-                <div class="tile-visual" aria-hidden="true">
+        <article class="feature reveal">
+            <div class="feature-text">
+                <h3>A gentle nudge.</h3>
+                <p>Add a reminder to any task and get a notification on whichever device is closest to you.</p>
+            </div>
+            <div class="feature-visual" aria-hidden="true">
+                <div class="notification-stack">
                     <div class="notification">
-                        <img src="assets/icon.png" alt="" width="38" height="38" loading="lazy">
+                        <img src="assets/icon.png" alt="" width="40" height="40" loading="lazy">
                         <div>
                             <p class="notification-top"><b>Weeekly</b><span>now</span></p>
                             <p class="notification-title">Call the dentist</p>
                             <p class="notification-body">Today, 9:00</p>
                         </div>
                     </div>
-                    <div class="notification notification-back"></div>
+                    <div class="notification-back"></div>
                 </div>
-            </article>
+            </div>
+        </article>
 
-            <article class="tile tile-cloud reveal">
-                <h3>iCloud sync. <span>Private, through your own Apple Account. No servers of ours.</span></h3>
-                <div class="tile-visual" aria-hidden="true">
-                    <svg class="cloud-glyph" viewBox="0 0 64 44"><defs><linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FB2FF"/><stop offset="1" stop-color="#3D7BFF"/></linearGradient></defs><path d="M50.5 42H15a13 13 0 0 1-2.2-25.8A17 17 0 0 1 45.4 12 15 15 0 0 1 50.5 42z" fill="url(#cloud)"/></svg>
-                </div>
-            </article>
-
-            <article class="tile tile-full tile-themes reveal">
-                <h3>Dark, or warm like paper. <span>A calm dark theme and a paper-like light one, each with a single bold blue accent. Or let your Mac decide.</span></h3>
-                <div class="tile-visual theme-compare" aria-hidden="true">
-                    <img src="assets/mac-light.webp" alt="" width="1500" height="760" loading="lazy">
-                    <img src="assets/mac-dark.webp" alt="" width="1500" height="760" loading="lazy">
-                </div>
-            </article>
-        </div>
+        <article class="feature feature-wide reveal">
+            <div class="feature-text">
+                <h3>Dark, or warm like paper.</h3>
+                <p>A calm dark theme and a paper-like light one. Or let your device decide.</p>
+            </div>
+            <div class="theme-compare" aria-hidden="true">
+                <img src="assets/mac-light.webp" alt="" width="1500" height="760" loading="lazy">
+                <img src="assets/mac-dark.webp" alt="" width="1500" height="760" loading="lazy">
+            </div>
+        </article>
     </section>
 
     <!-- Devices: all four in one lineup, then one card per device -->
