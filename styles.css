@@ -285,7 +285,7 @@ section { scroll-margin-top: 4rem; }
 .feature-visual > * { position: relative; }
 /* Which part of the illustration each panel shows */
 .v-colors { --bg-size: 250%; --bg-x: 4%; --bg-y: 8%; }
-.v-stickers { --bg-size: 300%; --bg-x: 6%; --bg-y: 100%; }
+.v-stickers { --bg-size: 280%; --bg-x: 62%; --bg-y: 4%; }
 .v-repeat { --bg-size: 260%; --bg-x: 96%; --bg-y: 6%; }
 .v-remind { --bg-size: 280%; --bg-x: 100%; --bg-y: 60%; }
 .v-cloud { --bg-size: 260%; --bg-x: 80%; --bg-y: 2%; }
