@@ -768,7 +768,38 @@ section { scroll-margin-top: 4rem; }
 .footer-cols a, .footer-cols span { font-size: 1rem; font-weight: 500; text-decoration: none; opacity: .92; }
 .footer-cols a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 .footer-head { margin: 0 0 .4rem; font-size: .9rem; font-weight: 700; opacity: .75; }
-.footer-fine { margin: auto 0 0; padding: 3rem 0 2rem; font-size: .8rem; opacity: .85; }
+.footer-fine {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .75rem 2rem;
+    margin: auto 0 0;
+    padding: 3rem 0 2rem;
+    font-size: .8rem;
+}
+.footer-fine p { margin: 0; max-width: 46rem; opacity: .85; }
+.footer-legal { display: flex; gap: 1.25rem; }
+.footer-legal a { font-weight: 600; text-decoration: none; }
+.footer-legal a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Legal pages: Privacy Policy, Terms of Use, Support */
+.legal-page { background: var(--paper); }
+.legal { max-width: 44rem; margin: 0 auto; padding: 8rem 1.5rem 4rem; }
+.legal h1 { font: 700 clamp(2.4rem, 5vw, 3.4rem)/1.05 var(--font-round); letter-spacing: -0.03em; margin-bottom: .5rem; }
+.legal h2 { margin: 2.75rem 0 .75rem; font-size: 1.35rem; font-weight: 700; }
+.legal h3 { margin: 1.75rem 0 .4rem; font-size: 1.08rem; }
+.legal p, .legal li { color: #3E3A36; font-size: 1.02rem; line-height: 1.65; }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin: .35rem 0; }
+.legal a { color: var(--accent); }
+.legal .btn { color: #fff; margin-top: .5rem; }
+.legal-meta { color: var(--ink-2) !important; font-size: .92rem !important; }
+.legal-lead { font-size: 1.2rem !important; color: var(--ink) !important; margin: 1.5rem 0 1rem; }
+.legal-address { padding: 1rem 1.25rem; border-radius: 16px; background: var(--card); }
+.legal-footer { padding: 2rem 1.5rem 3rem; text-align: center; font-size: .85rem; color: var(--ink-2); border-top: 1px solid rgba(74, 59, 40, .12); }
+.legal-footer a { color: inherit; }
+.nav-links a[aria-current="page"] { opacity: 1; font-weight: 600; }
 
 /* "Coming soon" toast for the buy button */
 .toast {
