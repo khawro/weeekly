@@ -32,7 +32,7 @@ const observer = new IntersectionObserver((entries) => {
         }
     }
 }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
-document.querySelectorAll(".reveal, .reveal-feature").forEach((el) => observer.observe(el));
+document.querySelectorAll(".reveal, .reveal-feature, .reveal-icon").forEach((el) => observer.observe(el));
 
 // Warm Light / Dark switch: changes the app theme in every screenshot on the page.
 const themeButtons = document.querySelectorAll("[data-set-theme]");
