@@ -98,7 +98,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 /* Hero */
 .hero {
     position: relative;
-    min-height: max(760px, 100svh);
+    min-height: max(760px, 100svh, 50vw);
     display: flex;
     justify-content: center;
     overflow: hidden;
