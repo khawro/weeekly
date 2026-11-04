@@ -605,15 +605,22 @@ section { scroll-margin-top: 4rem; }
     transition: transform .3s ease;
 }
 .device-card:hover { transform: translateY(-4px); }
+/* Apple's outline device glyphs (environment product icons), masked so they
+   follow the text color in either theme. */
 .device-icon {
-    width: 56px; height: 56px;
+    display: block;
+    width: 56px;
+    height: 56px;
     margin: 0 auto 1rem;
-    fill: none;
-    stroke: var(--ink);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    background-color: currentColor;
+    color: var(--ink);
+    -webkit-mask: var(--glyph) center / contain no-repeat;
+    mask: var(--glyph) center / contain no-repeat;
 }
+.device-card[data-device="mac"] .device-icon { --glyph: url("assets/devices/mac.svg"); }
+.device-card[data-device="ipad"] .device-icon { --glyph: url("assets/devices/ipad.svg"); }
+.device-card[data-device="iphone"] .device-icon { --glyph: url("assets/devices/iphone.svg"); }
+.device-card[data-device="watch"] .device-icon { --glyph: url("assets/devices/watch.svg"); }
 .device-card p { margin: 0; color: var(--ink-2); font-size: .95rem; }
 .device-card { display: flex; flex-direction: column; align-items: center; }
 
@@ -852,8 +859,19 @@ section { scroll-margin-top: 4rem; }
     .feature-visual { min-height: 0; padding: 2.5rem 1.25rem; }
     .v-stickers { min-height: 340px !important; }
     .stickers span { font-size: calc(var(--s) * .7); }
-    .device-card { padding: 1.4rem 1rem; }
-    .device-icon { width: 44px; height: 44px; }
+    /* One card per row. Two columns plus the nowrap App Store badge
+       is wider than a phone, and the section clips whatever sticks out. */
+    .device-cards {
+        grid-template-columns: 1fr;
+        gap: .85rem;
+        padding-inline: 1.25rem;
+    }
+    .device-card {
+        width: 100%;
+        min-width: 0;
+        padding: 1.35rem 1.35rem 1.2rem;
+    }
+    .device-icon { width: 48px; height: 48px; }
     .hero-bg img { object-position: 45% 80%; }
 }
 
