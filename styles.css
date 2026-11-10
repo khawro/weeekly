@@ -193,22 +193,16 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
     z-index: 1;
     border-radius: 1.4cqw;
     overflow: hidden;
-    background: var(--paper);
     box-shadow: 0 3cqw 6cqw -1.5cqw rgba(10, 20, 50, .55), 0 0 0 1px rgba(0, 0, 0, .18);
-    transition: background-color .4s ease;
 }
-.mac-titlebar { display: flex; gap: .7cqw; padding: 1.2cqw 1.4cqw .4cqw; }
-.mac-titlebar span { width: 1.05cqw; height: 1.05cqw; border-radius: 50%; background: #FF5F57; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12); }
-.mac-titlebar span:nth-child(2) { background: #FEBC2E; }
-.mac-titlebar span:nth-child(3) { background: #28C840; }
-.shot { width: 100%; }
+/* The screenshots are whole windows, title bar and traffic lights included */
+.shot { display: block; width: 100%; }
 .window-frame .mac-window { box-shadow: 0 1.4cqw 3.5cqw -1.2cqw rgba(10, 20, 50, .28), 0 0 0 1px rgba(0, 0, 0, .1); }
 
-/* App theme shown in every screenshot: Warm Light by default, Dark when switched */
-.t-dark { display: none !important; }
-[data-app-theme="dark"] .t-dark { display: block !important; }
-[data-app-theme="dark"] .t-light { display: none !important; }
-[data-app-theme="dark"] .mac-window { background: var(--night); }
+/* App theme shown in every screenshot: Meadow by default, Warm Light or Dark when switched */
+.t-light, .t-dark { display: none !important; }
+[data-app-theme="light"] .t-light, [data-app-theme="dark"] .t-dark { display: block !important; }
+[data-app-theme="light"] .t-meadow, [data-app-theme="dark"] .t-meadow { display: none !important; }
 
 .theme-switch {
     display: flex;
@@ -237,6 +231,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 .theme-switch button:not(.is-active):hover { color: var(--ink); }
 .theme-switch svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .theme-switch button[data-set-theme="dark"] svg { fill: currentColor; stroke: none; }
+.theme-switch button[data-set-theme="meadow"] svg { stroke-width: 2.2; }
 .theme-switch button.is-active { background: var(--ink); color: #fff; }
 
 /* Sections */
