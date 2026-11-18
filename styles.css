@@ -199,7 +199,7 @@ h3 { font-size: 1.3rem; font-weight: 650; margin-bottom: .4rem; }
 .shot { display: block; width: 100%; }
 .window-frame .mac-window { box-shadow: 0 1.4cqw 3.5cqw -1.2cqw rgba(10, 20, 50, .28), 0 0 0 1px rgba(0, 0, 0, .1); }
 
-/* App theme shown in every screenshot: Meadow by default, Warm Light or Dark when switched */
+/* App theme shown in every screenshot: Warm Light by default (data-app-theme="light" on <html>), Meadow or Dark when switched */
 .t-light, .t-dark { display: none !important; }
 [data-app-theme="light"] .t-light, [data-app-theme="dark"] .t-dark { display: block !important; }
 [data-app-theme="light"] .t-meadow, [data-app-theme="dark"] .t-meadow { display: none !important; }
@@ -872,3 +872,66 @@ section { scroll-margin-top: 4rem; }
     .reveal-feature *:not(.stickers span) { opacity: 1 !important; transform: none !important; }
     .reveal-feature .stickers span { opacity: 1 !important; }
 }
+
+/* Official App Store badges (Apple Marketing Tools) and Apple product images
+   (Apple Design Resources) instead of drawn devices. */
+
+/* Badges as supplied: never under 40px tall, with clear space of a quarter of the height around them. */
+.store-badge-official {
+    display: inline-block;
+    margin-top: 1.4rem;
+    padding: 10px;
+    margin-left: -10px;
+    line-height: 0;
+    border-radius: 12px;
+    transition: transform .15s ease;
+}
+.store-badge-official img { display: block; height: 44px; width: auto; }
+.store-badge-official:active { transform: scale(.97); }
+
+/* Device lineup: whole product images, so no drawn bodies, notches or screens. */
+.lu > img { display: block; width: 100%; height: auto; filter: drop-shadow(0 1.6cqw 2cqw rgba(10, 20, 50, .28)); }
+.lu-mac { left: 17cqw; bottom: 1.4cqw; width: 66cqw; }
+.lu-ipad { left: 0; bottom: 0; width: 29cqw; }
+.lu-iphone { right: 11.5cqw; bottom: 0; width: 15.5cqw; }
+.lu-watch { right: 0; bottom: 0; width: 13cqw; }
+
+/* Theme switch as an iOS segmented control: a gray track and a white thumb that slides to the selection. */
+.theme-switch {
+    --segment: 52px;
+    gap: 0;
+    padding: 2px;
+    border-radius: 999px;
+    background: rgba(118, 118, 128, .14);
+}
+.theme-switch::before {
+    content: "";
+    position: absolute;
+    top: 2px; bottom: 2px; left: 2px;
+    width: var(--segment);
+    border-radius: 999px;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .12), 0 3px 1px rgba(0, 0, 0, .04), 0 0 0 .5px rgba(0, 0, 0, .04);
+    transition: transform .3s cubic-bezier(.3, .9, .3, 1);
+}
+.theme-switch:has(button:nth-child(2).is-active)::before { transform: translateX(var(--segment)); }
+.theme-switch:has(button:nth-child(3).is-active)::before { transform: translateX(calc(var(--segment) * 2)); }
+.theme-switch button {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: var(--segment);
+    height: 32px;
+    font: 500 .875rem var(--font);
+    letter-spacing: -.01em;
+    color: #3C3C43;
+}
+.theme-switch button.is-active { background: transparent; color: #1D1D1F; font-weight: 600; }
+.theme-switch button:not(.is-active):hover { color: #1D1D1F; }
+.theme-switch svg { width: 17px; height: 17px; stroke-width: 2.2; }
+
+/* Device cards: a small photo of each device instead of a line icon. */
+.device-photo { display: block; height: 72px; width: auto; margin: 0 auto 1rem; filter: drop-shadow(0 6px 10px rgba(10, 20, 50, .18)); }
