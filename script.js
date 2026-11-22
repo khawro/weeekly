@@ -48,19 +48,6 @@ themeButtons.forEach((button) => {
     });
 });
 
-// The app isn't on sale yet: the buy button shows a "coming soon" toast.
-const toast = document.getElementById("toast");
-let toastTimer;
-document.querySelectorAll("[data-buy]").forEach((button) => {
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        toast.textContent = "Coming soon to the App Store ✨";
-        toast.classList.add("is-visible");
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2800);
-    });
-});
-
 // Hovering a device card lifts that device in the lineup.
 const lineup = document.getElementById("lineup");
 document.querySelectorAll(".device-card").forEach((card) => {

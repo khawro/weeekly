@@ -810,24 +810,6 @@ section { scroll-margin-top: 4rem; }
 .legal-footer a { color: inherit; }
 .nav-links a[aria-current="page"] { opacity: 1; font-weight: 600; }
 
-/* "Coming soon" toast for the buy button */
-.toast {
-    position: fixed;
-    left: 50%;
-    bottom: 2rem;
-    z-index: 60;
-    padding: .9rem 1.4rem;
-    border-radius: 999px;
-    background: rgba(29, 29, 31, .92);
-    color: #fff;
-    font-weight: 500;
-    transform: translate(-50%, 150%);
-    opacity: 0;
-    transition: transform .4s cubic-bezier(.2, 1.2, .4, 1), opacity .3s ease;
-    pointer-events: none;
-}
-.toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
-
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
 .reveal.is-visible { opacity: 1; transform: none; }
